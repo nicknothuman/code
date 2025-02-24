@@ -3,56 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Chat</title>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
-    <link rel="styelsheet" href="style.css">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    
 </head>
 <body>
-    <h2>Live Chat</h2>
-    <div id="chat"></div>
-    <input type="text" id="name" placeholder="Your Name">
-    <input type="text" id="message" placeholder="Type a message...">
-    <button onclick="sendMessage()">Send</button>
+    <h1> test 1.2 </h1>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+    <div class="box5">5</div>
 
-    <script>
-        // 🔥 Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+   <iframe 
+src="https://www.google.com/maps/embed/v1/search?q=Nissan+store&key=AIzaSyCXAotVvAbMBM-4E7ANUWG7eZgxK10VSlY"   width="500" height="300"  
+   >
+</iframe>
 
-        // 🔥 Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
 
-        // 📩 Send Message
-        function sendMessage() {
-            const name = document.getElementById("name").value;
-            const message = document.getElementById("message").value;
-
-            if (name && message) {
-                db.collection("messages").add({
-                    name: name,
-                    message: message,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                });
-                document.getElementById("message").value = ""; // Clear input
-            }
-        }
-
-        // 📥 Listen for Messages
-        db.collection("messages").orderBy("timestamp").onSnapshot(snapshot => {
-            document.getElementById("chat").innerHTML = "";
-            snapshot.forEach(doc => {
-                const msg = doc.data();
-                document.getElementById("chat").innerHTML += `<p><strong>${msg.name}:</strong> ${msg.message}</p>`;
-            });
-        });
-    </script>
+   
 </body>
 </html>
